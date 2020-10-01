@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c1a2c2c.chunk.css",
+    "main.js": "/static/js/main.637a96eb.chunk.js",
+    "main.js.map": "/static/js/main.637a96eb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.eba039cb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.eba039cb.js.map",
+    "static/css/2.8aa5a7f8.chunk.css": "/static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.5d0833b1.chunk.js": "/static/js/2.5d0833b1.chunk.js",
+    "static/js/2.5d0833b1.chunk.js.map": "/static/js/2.5d0833b1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.52467618e2d0ff2f27806fa8f844bb39.js": "/precache-manifest.52467618e2d0ff2f27806fa8f844bb39.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.8aa5a7f8.chunk.css.map": "/static/css/2.8aa5a7f8.chunk.css.map",
+    "static/css/main.5c1a2c2c.chunk.css.map": "/static/css/main.5c1a2c2c.chunk.css.map",
+    "static/js/2.5d0833b1.chunk.js.LICENSE.txt": "/static/js/2.5d0833b1.chunk.js.LICENSE.txt",
+    "static/media/ceirs-logo.png": "/static/media/ceirs-logo.406add80.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eba039cb.js",
+    "static/css/2.8aa5a7f8.chunk.css",
+    "static/js/2.5d0833b1.chunk.js",
+    "static/css/main.5c1a2c2c.chunk.css",
+    "static/js/main.637a96eb.chunk.js"
+  ]
+}
