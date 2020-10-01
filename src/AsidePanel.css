@@ -1,0 +1,30 @@
+.asideMenuItem {
+  font-size: 14px;
+  line-height: 0.5em;
+  color: #666;
+  padding: 16px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.asideMenuBody {
+  background-color: "#f7f7f7" !important;
+  padding: "10px";
+  padding-bottom: "0";
+  text-align: "left" !important;
+}
+
+.asideMenuSubItem {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 0 !important;
+  line-height: normal;
+  margin: 0;
+  color: #666 !important;
+  padding: 10px 7px;
+  text-decoration: none;
+}
+
+.card-link {
+  margin-left: 0;
+}
