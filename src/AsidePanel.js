@@ -6,6 +6,30 @@ import {
   faPlusSquare,
 } from "@fortawesome/free-regular-svg-icons";
 import "./AsidePanel.css";
+import {
+  CEIRS_REPORTS_URL,
+  WEB_ANALYTICS_URL,
+  SUBMIT_DATA_URL,
+  SEARCH_EDIT_URL,
+  EVENTS_HISTORY_URL,
+  COLLABORATION_URL,
+  REPORTS_URL,
+  SEQUENCING_URL,
+  REAGENTS_URL,
+  HELP_DESK_URL,
+  DATA_STANDARDS_URL,
+  FAQ_URL,
+  TRAINING_URL,
+  CONTACT_US_URL,
+  PROJECT_REGISTRATION_URL,
+  PROJECT_MANAGEMENT_URL,
+  METADATA_SETUP_URL,
+  ACTOR_URL,
+  ROLE_MANAGEMENT_URL,
+  ACCOUNT_INFO_URL,
+  LOGOUT_URL,
+  USER_PROFILE_URL,
+} from "./constants";
 
 export default function AsidePanel(props) {
   return (
@@ -39,13 +63,13 @@ export default function AsidePanel(props) {
                 textAlign: "left",
               }}
             >
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={CEIRS_REPORTS_URL}>
                 Ceirs Center Reports
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={WEB_ANALYTICS_URL}>
                 Web Analytics
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={SUBMIT_DATA_URL}>
                 Advanced Analytics
               </Card.Link>
             </Card.Body>
@@ -74,13 +98,13 @@ export default function AsidePanel(props) {
                 textAlign: "left",
               }}
             >
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={SUBMIT_DATA_URL}>
                 Submit Data
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={SEARCH_EDIT_URL}>
                 Search & Edit
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={EVENTS_HISTORY_URL}>
                 Event History
               </Card.Link>
             </Card.Body>
@@ -92,7 +116,7 @@ export default function AsidePanel(props) {
             className="asideMenuItem"
             eventKey="2"
           >
-            <Card.Link href="" style={{ color: "#666" }}>
+            <Card.Link href={COLLABORATION_URL} style={{ color: "#666" }}>
               Collaboration
             </Card.Link>
           </Accordion.Toggle>
@@ -120,13 +144,13 @@ export default function AsidePanel(props) {
                 textAlign: "left",
               }}
             >
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={REPORTS_URL}>
                 Center Projects
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={SEQUENCING_URL}>
                 Sequencing Request
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={REAGENTS_URL}>
                 Reagents
               </Card.Link>
             </Card.Body>
@@ -155,19 +179,19 @@ export default function AsidePanel(props) {
                 textAlign: "left",
               }}
             >
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={HELP_DESK_URL}>
                 Help Desk
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={DATA_STANDARDS_URL}>
                 Data Standards
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={FAQ_URL}>
                 FAQ
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={TRAINING_URL}>
                 Training Materials
               </Card.Link>
-              <Card.Link className="asideMenuSubItem" href="#">
+              <Card.Link className="asideMenuSubItem" href={CONTACT_US_URL}>
                 Contact Us
               </Card.Link>
             </Card.Body>
@@ -197,19 +221,31 @@ export default function AsidePanel(props) {
                   textAlign: "left",
                 }}
               >
-                <Card.Link className="asideMenuSubItem" href="#">
+                <Card.Link
+                  className="asideMenuSubItem"
+                  href={PROJECT_REGISTRATION_URL}
+                >
                   Project Registration
                 </Card.Link>
-                <Card.Link className="asideMenuSubItem" href="#">
+                <Card.Link
+                  className="asideMenuSubItem"
+                  href={PROJECT_MANAGEMENT_URL}
+                >
                   Project Setup
                 </Card.Link>
-                <Card.Link className="asideMenuSubItem" href="#">
+                <Card.Link
+                  className="asideMenuSubItem"
+                  href={METADATA_SETUP_URL}
+                >
                   Metadata Setup
                 </Card.Link>
-                <Card.Link className="asideMenuSubItem" href="#">
+                <Card.Link className="asideMenuSubItem" href={ACTOR_URL}>
                   Add New Actor
                 </Card.Link>
-                <Card.Link className="asideMenuSubItem" href="#">
+                <Card.Link
+                  className="asideMenuSubItem"
+                  href={ROLE_MANAGEMENT_URL}
+                >
                   Actor Role Management
                 </Card.Link>
               </Card.Body>

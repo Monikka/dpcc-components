@@ -12,6 +12,10 @@ function Footer() {
         backgroundColor: "#012641",
         color: "#fff",
         textAlign: "right",
+        position: "fixed",
+        left: 0,
+        bottom: 0,
+        width: "100%",
       }}
     >
       <p

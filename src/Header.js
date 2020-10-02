@@ -1,6 +1,29 @@
 import React from "react";
 import { Dropdown, Nav, NavItem, NavDropdown, Navbar } from "react-bootstrap";
-import { ACCOUNT_INFO_URL, LOGOUT_URL, USER_PROFILE_URL } from "./constants";
+import {
+  CEIRS_REPORTS_URL,
+  WEB_ANALYTICS_URL,
+  SUBMIT_DATA_URL,
+  SEARCH_EDIT_URL,
+  EVENTS_HISTORY_URL,
+  COLLABORATION_URL,
+  REPORTS_URL,
+  SEQUENCING_URL,
+  REAGENTS_URL,
+  HELP_DESK_URL,
+  DATA_STANDARDS_URL,
+  FAQ_URL,
+  TRAINING_URL,
+  CONTACT_US_URL,
+  PROJECT_REGISTRATION_URL,
+  PROJECT_MANAGEMENT_URL,
+  METADATA_SETUP_URL,
+  ACTOR_URL,
+  ROLE_MANAGEMENT_URL,
+  ACCOUNT_INFO_URL,
+  LOGOUT_URL,
+  USER_PROFILE_URL,
+} from "./constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "./ceirs-logo.png";
@@ -45,31 +68,28 @@ export default class Header extends React.Component {
           </Dropdown.Toggle>
           <Dropdown.Menu className="headerMenuDropdown">
             <Dropdown.Item
-              href="/ometa/centerreport.action"
+              href={PROJECT_REGISTRATION_URL}
               className="headerMenuDropdownItem"
             >
               Project Registration
             </Dropdown.Item>
             <Dropdown.Item
-              href="/ometa/centerreport.action"
+              href={PROJECT_MANAGEMENT_URL}
               className="headerMenuDropdownItem"
             >
               Project Management
             </Dropdown.Item>
             <Dropdown.Item
-              href="/ometa/centerreport.action"
+              href={METADATA_SETUP_URL}
               className="headerMenuDropdownItem"
             >
               Metadata setup
             </Dropdown.Item>
-            <Dropdown.Item
-              href="/ometa/centerreport.action"
-              className="headerMenuDropdownItem"
-            >
+            <Dropdown.Item href={ACTOR_URL} className="headerMenuDropdownItem">
               Add New Actor
             </Dropdown.Item>
             <Dropdown.Item
-              href="/ometa/centerreport.action"
+              href={ROLE_MANAGEMENT_URL}
               className="headerMenuDropdownItem"
             >
               Actor Role Management
@@ -189,19 +209,19 @@ export default class Header extends React.Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="headerMenuDropdown">
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={CEIRS_REPORTS_URL}
                         className="headerMenuDropdownItem"
                       >
                         CEIRS Center Reports
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={WEB_ANALYTICS_URL}
                         className="headerMenuDropdownItem"
                       >
                         Web Analytics
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={WEB_ANALYTICS_URL}
                         className="headerMenuDropdownItem"
                       >
                         Advanced Analytics
@@ -234,19 +254,19 @@ export default class Header extends React.Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="headerMenuDropdown">
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={SUBMIT_DATA_URL}
                         className="headerMenuDropdownItem"
                       >
                         Submit Data
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={SEARCH_EDIT_URL}
                         className="headerMenuDropdownItem"
                       >
                         Search & Edit Data
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={EVENTS_HISTORY_URL}
                         className="headerMenuDropdownItem"
                       >
                         Event History
@@ -261,7 +281,7 @@ export default class Header extends React.Component {
                       border: "0px solid #efefef",
                       borderRadius: "1px",
                     }}
-                    href="#"
+                    href={COLLABORATION_URL}
                     className="headerMenuDropdownButton"
                   >
                     Collaboration
@@ -290,19 +310,19 @@ export default class Header extends React.Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="headerMenuDropdown">
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={REPORTS_URL}
                         className="headerMenuDropdownItem"
                       >
                         Center Projects
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={SEQUENCING_URL}
                         className="headerMenuDropdownItem"
                       >
                         Sequencing Request
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={REAGENTS_URL}
                         className="headerMenuDropdownItem"
                       >
                         Reagents
@@ -335,31 +355,31 @@ export default class Header extends React.Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="headerMenuDropdown">
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={HELP_DESK_URL}
                         className="headerMenuDropdownItem"
                       >
                         Help Desk
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={DATA_STANDARDS_URL}
                         className="headerMenuDropdownItem"
                       >
                         Data Standards
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={FAQ_URL}
                         className="headerMenuDropdownItem"
                       >
                         FAQ
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={TRAINING_URL}
                         className="headerMenuDropdownItem"
                       >
                         Training Materials
                       </Dropdown.Item>
                       <Dropdown.Item
-                        href="/ometa/centerreport.action"
+                        href={CONTACT_US_URL}
                         className="headerMenuDropdownItem"
                       >
                         Contact Us
