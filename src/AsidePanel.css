@@ -28,3 +28,9 @@
 .card-link {
   margin-left: 0;
 }
+
+@media only screen and (min-width: 768px) {
+  #basic-navbar-nav {
+    display: none;
+  }
+}

@@ -9,7 +9,7 @@ import "./AsidePanel.css";
 
 export default function AsidePanel(props) {
   return (
-    <Nav role="navigation" className="flex-column">
+    <Nav role="navigation" id="basic-navbar-nav" className="flex-column">
       <Accordion
         style={{
           backgroundColor: "#F7F7F7",

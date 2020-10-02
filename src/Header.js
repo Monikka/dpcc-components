@@ -1,13 +1,15 @@
 import React from "react";
 import { Dropdown, Nav, NavItem, NavDropdown, Navbar } from "react-bootstrap";
 import { ACCOUNT_INFO_URL, LOGOUT_URL, USER_PROFILE_URL } from "./constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "./ceirs-logo.png";
 import "./Header.css";
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false, hoveredMenu: "" };
+    this.state = { hoveredMenu: "", navBarCollapsed: false };
   }
 
   handleOpen = (event) => {
@@ -20,6 +22,64 @@ export default class Header extends React.Component {
 
   render() {
     console.log(this.props.isAdmin);
+
+    const adminNavItem = !this.props.isAdmin ? (
+      <Nav.Item className="navItem">
+        <Dropdown
+          id="admin"
+          onMouseEnter={this.handleOpen}
+          onMouseLeave={this.handleClose}
+          show={this.state.hoveredMenu === "admin"}
+          style={{ textTransform: "uppercase" }}
+        >
+          <Dropdown.Toggle
+            className="headerMenuDropdownButton"
+            style={{
+              color: "#b6cad9",
+              border: "0px solid #efefef",
+              backgroundColor:
+                this.state.hoveredMenu === "admin" ? "#313843" : "#012641",
+            }}
+          >
+            Admin
+          </Dropdown.Toggle>
+          <Dropdown.Menu className="headerMenuDropdown">
+            <Dropdown.Item
+              href="/ometa/centerreport.action"
+              className="headerMenuDropdownItem"
+            >
+              Project Registration
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="/ometa/centerreport.action"
+              className="headerMenuDropdownItem"
+            >
+              Project Management
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="/ometa/centerreport.action"
+              className="headerMenuDropdownItem"
+            >
+              Metadata setup
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="/ometa/centerreport.action"
+              className="headerMenuDropdownItem"
+            >
+              Add New Actor
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="/ometa/centerreport.action"
+              className="headerMenuDropdownItem"
+            >
+              Actor Role Management
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Nav.Item>
+    ) : (
+      ""
+    );
     return (
       <div
         style={{
@@ -80,200 +140,242 @@ export default class Header extends React.Component {
             </a>
           </div>
           <div style={{ float: "right", marginRight: "61.67px" }}>
-            <Navbar expand="lg">
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav variant="pills">
-                  <Nav.Item className="navItem">
-                    <Dropdown
-                      id="reports"
-                      onMouseEnter={this.handleOpen}
-                      onMouseLeave={this.handleClose}
-                      show={this.state.hoveredMenu === "reports"}
-                      style={{ textTransform: "uppercase" }}
-                    >
-                      <Dropdown.Toggle
-                        className="headerMenuDropdownButton"
-                        style={{
-                          color: "#b6cad9",
-                          border: "0px solid #efefef",
-                        }}
-                      >
-                        Reports & Analytics
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu className="headerMenuDropdown">
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          CEIRS Center Reports
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Web Analytics
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Advanced Analytics
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Nav.Item>
-                  <Nav.Item className="navItem">
-                    <Dropdown
-                      id="data-submission"
-                      onMouseEnter={this.handleOpen}
-                      onMouseLeave={this.handleClose}
-                      show={this.state.hoveredMenu === "data-submission"}
-                      style={{ textTransform: "uppercase" }}
-                    >
-                      <Dropdown.Toggle
-                        className="headerMenuDropdownButton"
-                        style={{
-                          color: "#b6cad9",
-                          border: "0px solid #efefef",
-                        }}
-                      >
-                        DATA SUBMISSION
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu className="headerMenuDropdown">
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Submit Data
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Search & Edit Data
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Event History
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Nav.Item>
-                  <Nav.Item className="navItem">
-                    <Nav.Link
+            <Navbar
+              style={{ paddingTop: 0 }}
+              expand="md"
+              onToggle={(showSideBar) => {
+                this.setState({
+                  navBarCollapsed: showSideBar,
+                });
+                this.props.updateShowSideBar(showSideBar);
+              }}
+            >
+              <Navbar.Toggle
+                data-target="#basic-navbar-nav"
+                aria-controls="basic-navbar-nav"
+                style={{ color: "white" }}
+                className="border-0"
+              >
+                <FontAwesomeIcon icon={faBars} color="#C5C6CA" />
+              </Navbar.Toggle>
+
+              <Nav
+                className="navItems"
+                variant="pills"
+                style={{
+                  zIndex: 2,
+                }}
+              >
+                <Nav.Item className="navItem">
+                  <Dropdown
+                    id="reports"
+                    onMouseEnter={this.handleOpen}
+                    onMouseLeave={this.handleClose}
+                    show={this.state.hoveredMenu === "reports"}
+                    style={{ textTransform: "uppercase" }}
+                  >
+                    <Dropdown.Toggle
+                      className="headerMenuDropdownButton"
                       style={{
                         color: "#b6cad9",
                         border: "0px solid #efefef",
-                        borderRadius: "1px",
+                        backgroundColor:
+                          this.state.hoveredMenu === "reports"
+                            ? "#313843"
+                            : "#012641",
                       }}
-                      href="#"
+                    >
+                      Reports & Analytics
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="headerMenuDropdown">
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        CEIRS Center Reports
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Web Analytics
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Advanced Analytics
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav.Item>
+                <Nav.Item
+                  className="navItem"
+                  id="data-submission"
+                  onMouseOver={this.handleOpen}
+                  onMouseOut={this.handleClose}
+                >
+                  <Dropdown
+                    show={this.state.hoveredMenu === "data-submission"}
+                    style={{ textTransform: "uppercase" }}
+                  >
+                    <Dropdown.Toggle
                       className="headerMenuDropdownButton"
+                      style={{
+                        color: "#b6cad9",
+                        border: "0px solid #efefef",
+                        backgroundColor:
+                          this.state.hoveredMenu === "data-submission"
+                            ? "#313843"
+                            : "#012641",
+                      }}
                     >
-                      Collaboration
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="navItem">
-                    <Dropdown
-                      id="resources"
-                      onMouseEnter={this.handleOpen}
-                      onMouseLeave={this.handleClose}
-                      show={this.state.hoveredMenu === "resources"}
-                      style={{ textTransform: "uppercase" }}
-                    >
-                      <Dropdown.Toggle
-                        className="headerMenuDropdownButton"
-                        style={{
-                          color: "#b6cad9",
-                          border: "0px solid #efefef",
-                        }}
+                      Data Submission
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="headerMenuDropdown">
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
                       >
-                        Resources
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu className="headerMenuDropdown">
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Center Projects
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Sequencing Request
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Reagents
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Nav.Item>
-                  <Nav.Item className="navItem">
-                    <Dropdown
-                      id="help"
-                      onMouseEnter={this.handleOpen}
-                      onMouseLeave={this.handleClose}
-                      show={this.state.hoveredMenu === "help"}
-                      style={{ textTransform: "uppercase" }}
-                    >
-                      <Dropdown.Toggle
-                        className="headerMenuDropdownButton"
-                        style={{
-                          color: "#b6cad9",
-                          border: "0px solid #efefef",
-                        }}
+                        Submit Data
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
                       >
-                        Help
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu className="headerMenuDropdown">
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Help Desk
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Data Standards
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          FAQ
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Training Materials
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href="/ometa/centerreport.action"
-                          className="headerMenuDropdownItem"
-                        >
-                          Contact Us
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Nav.Item>
-                  {this.props.isAdmin ? "" : ""}
-                </Nav>
-              </Navbar.Collapse>
+                        Search & Edit Data
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Event History
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav.Item>
+                <Nav.Item className="navItem">
+                  <Nav.Link
+                    style={{
+                      color: "#b6cad9",
+                      border: "0px solid #efefef",
+                      borderRadius: "1px",
+                    }}
+                    href="#"
+                    className="headerMenuDropdownButton"
+                  >
+                    Collaboration
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item className="navItem">
+                  <Dropdown
+                    id="resources"
+                    onMouseEnter={this.handleOpen}
+                    onMouseLeave={this.handleClose}
+                    show={this.state.hoveredMenu === "resources"}
+                    style={{ textTransform: "uppercase" }}
+                  >
+                    <Dropdown.Toggle
+                      className="headerMenuDropdownButton"
+                      style={{
+                        color: "#b6cad9",
+                        border: "0px solid #efefef",
+                        backgroundColor:
+                          this.state.hoveredMenu === "resources"
+                            ? "#313843"
+                            : "#012641",
+                      }}
+                    >
+                      Resources
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="headerMenuDropdown">
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Center Projects
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Sequencing Request
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Reagents
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav.Item>
+                <Nav.Item className="navItem">
+                  <Dropdown
+                    id="help"
+                    onMouseEnter={this.handleOpen}
+                    onMouseLeave={this.handleClose}
+                    show={this.state.hoveredMenu === "help"}
+                    style={{
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    <Dropdown.Toggle
+                      className="headerMenuDropdownButton"
+                      style={{
+                        color: "#b6cad9",
+                        border: "0px solid #efefef",
+                        backgroundColor:
+                          this.state.hoveredMenu === "help"
+                            ? "#313843"
+                            : "#012641",
+                      }}
+                    >
+                      Help
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="headerMenuDropdown">
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Help Desk
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Data Standards
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        FAQ
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Training Materials
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="/ometa/centerreport.action"
+                        className="headerMenuDropdownItem"
+                      >
+                        Contact Us
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav.Item>
+                {adminNavItem}
+              </Nav>
             </Navbar>
           </div>
           <div
             className="d-flex justify-content-start"
             style={{
               width: "100%",
+              zIndex: 1,
               background: "rgba(95, 147, 197, 0.8)",
               height: "22px",
               position: "absolute",
